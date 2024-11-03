@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 # Check Data App
 
 The **Check Data App** is a web application built with Dash that allows users to upload and interactively explore data files (CSV or Excel). Users can view various details about the uploaded data, such as the first few rows, data types, missing values, and descriptive statistics. The app is built with Dash and Pandas and is Docker-ready for easy deployment.
@@ -161,3 +162,5 @@ def display_operation(...):
 ---
 
 This README provides a clear overview of the Check Data App’s functionality, setup instructions, and code structure for easy usage and deployment.
+=======
+>>>>>>> 762ab65b4e0dc48ec37a74b484f6a2cd994dc7ab
