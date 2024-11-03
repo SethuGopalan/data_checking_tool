@@ -1,49 +1,54 @@
 Check Data App
-The Check Data App is a Dash-based web application that allows users to upload and explore data files (CSV or Excel) interactively. Users can view different details of the uploaded data, such as the first few rows, data types, missing values, and descriptive statistics. This app is built using Dash and Pandas and can be deployed using Docker.
+The Check Data App is a Dash-based web application that allows users to upload and explore data files (CSV or Excel) interactively.
+Users can view different details of the uploaded data, such as the first few rows, data types, missing values, and descriptive statistics.
+This app is built using Dash and Pandas and can be deployed using Docker.
 
 Features
-File Upload: Upload CSV or Excel files.
-Data Analysis Options:
-Head: Displays the first few rows of data.
-Info: Shows column data types and memory usage.
-Tail: Displays the last few rows of data.
-Shape: Shows the dataset dimensions.
-Describe: Provides summary statistics.
-Dtypes: Lists data types for each column.
-Show Data: Displays the entire dataset.
-Check Missing Values: Displays missing value counts.
-Close Tab: Clears the current display.
+  File Upload: Upload CSV or Excel files.
+  Data Analysis Options:
+  Head: Displays the first few rows of data.
+  Info: Shows column data types and memory usage.
+  Tail: Displays the last few rows of data.
+  Shape: Shows the dataset dimensions.
+  Describe: Provides summary statistics.
+  Dtypes: Lists data types for each column.
+  Show Data: Displays the entire dataset.
+  Check Missing Values: Displays missing value counts.
+  Close Tab: Clears the current display.
+  
 Project Structure
-bash
-Copy code
-.
+
+
 ├── app.py                 # Main application code
 ├── Dockerfile             # Docker configuration for the app
 ├── docker-compose.yml     # Docker Compose configuration
 └── README.md              # Project documentation
+
 Setup and Installation
+
 Prerequisites
+
 Python 3.9+
 Docker (for containerized deployment)
+
 Local Installation
 Clone the Repository:
 
-bash
-Copy code
 git clone <repository-url>
 cd <repository-directory>
+
 Install Dependencies:
 
-bash
-Copy code
 pip install dash dash-bootstrap-components pandas
+
 Run the Application:
 
-bash
-Copy code
 python app.py
+
 Docker Installation
+
 Dockerfile
+
 The Dockerfile builds an environment to run the app in a Docker container:
 
 Dockerfile
@@ -66,7 +71,9 @@ EXPOSE 8050
 
 # Run the application
 CMD ["python", "app.py"]
+
 Docker Compose
+
 The docker-compose.yml file simplifies Docker configuration:
 
 yaml
@@ -81,14 +88,14 @@ services:
     volumes:
       - .:/app
 To run the app with Docker Compose:
-
-bash
-Copy code
 docker-compose up
+
 Usage
 1. Upload a File
 Drag and drop or select a CSV/Excel file using the "Upload" button. Successful uploads show the filename in the file details section.
-2. Explore Data
+
+3. Explore Data
+   
 Use the buttons to view specific aspects of your data:
 Head: Shows the top rows of the data.
 Info: Lists data types and memory information.
@@ -99,12 +106,13 @@ Dtypes: Lists each column’s data type.
 Show Data: Displays the entire dataset.
 Check Missing Values: Counts any missing values per column.
 Close Tab: Clears the output section.
+
 Example Code Explanation
+
 File Upload and Storage
 The dcc.Upload component allows users to upload files. The contents are stored in JSON format for use across the app.
 
-python
-Copy code
+
 @app.callback(
     [Output('stored-data', 'data'), Output('file-details', 'children')],
     [Input('upload-data', 'contents')],
@@ -115,8 +123,7 @@ def upload_funct(contents, filename):
 Data Display
 Each button click triggers a callback to display the requested data summary:
 
-python
-Copy code
+
 @app.callback(
     Output('output-container', 'children'),
     [Input('btn-head', 'n_clicks'), Input('btn-info', 'n_clicks'), ...],
