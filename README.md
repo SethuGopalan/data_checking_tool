@@ -17,6 +17,9 @@ The **Check Data App** is a web application built with Dash that allows users to
   - **Show Data**: Displays the entire dataset.
   - **Check Missing Values**: Shows the count of missing values per column.
   - **Close Tab**: Clears the current display.
+## Screenshots
+[Include some screenshots of your app's UI and functionality]
+![App Screenshot](assets/mainScreen.jpg)
 
 ## Project Structure
 
